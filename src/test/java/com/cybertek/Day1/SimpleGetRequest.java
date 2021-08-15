@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 public class SimpleGetRequest {
-    String url = "http://52.207.61.129:8000/api/spartans";
+    String url = "http://100.26.214.41:8000/api/spartans";
 
     @Test
     public void test1() {
