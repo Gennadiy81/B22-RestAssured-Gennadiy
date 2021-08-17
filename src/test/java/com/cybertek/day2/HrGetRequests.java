@@ -28,7 +28,7 @@ public class HrGetRequests {
    @DisplayName("Get request to /regions")
     @Test
     public void test2(){
-        Response response = get( "/regions/2");
+        Response response = get("/regions/2");
 
        assertEquals(200, response.statusCode());
        assertEquals( "application/json",response.contentType());
