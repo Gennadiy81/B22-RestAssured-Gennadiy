@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.MatcherAssert.*;
+import static org.hamcrest.Matchers.*;
 
 public class JSONtoJAVATest extends SpartanTestBase {
 
@@ -25,6 +27,9 @@ public class JSONtoJAVATest extends SpartanTestBase {
 
             Map<String,Object> jsonMap = response.as(Map.class);
             System.out.println(jsonMap.toString());
+
+            String actualName = (String) jsonMap.get("name");
+            assertThat(actualName, is("Meta"));
 
 
         }
