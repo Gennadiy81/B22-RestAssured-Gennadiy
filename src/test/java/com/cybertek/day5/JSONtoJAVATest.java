@@ -1,6 +1,6 @@
 package com.cybertek.day5;
 
-import com.cybertek.utiliteis.SpartanTestBase;
+import com.cybertek.utilities.SpartanTestBase;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

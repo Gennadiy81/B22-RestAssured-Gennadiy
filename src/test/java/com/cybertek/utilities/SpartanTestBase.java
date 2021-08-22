@@ -1,4 +1,4 @@
-package com.cybertek.utiliteis;
+package com.cybertek.utilities;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,7 +10,7 @@ public abstract class SpartanTestBase {
     public static void init() {
         baseURI = "http://100.26.214.41:8000";
 
-        String dbUrl = "jdbc:oracle:thin:100.26.214.41:1521:xe";
+        String dbUrl = "jdbc:oracle:thin:@100.26.214.41:1521:xe";
         String dbUsername = "SP";
         String dbPassword = "SP";
 
@@ -18,7 +18,7 @@ public abstract class SpartanTestBase {
     }
 
     @AfterAll
-    public void teardown() {
+    public static void teardown() {
 
         com.cybertek.utilities.DBUtils.destroy();
     }

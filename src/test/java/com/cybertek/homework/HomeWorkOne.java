@@ -1,7 +1,7 @@
 package com.cybertek.homework;
 
 
-import com.cybertek.utiliteis.HRTestBase;
+import com.cybertek.utilities.HRTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;

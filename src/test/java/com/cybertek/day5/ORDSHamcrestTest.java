@@ -1,6 +1,6 @@
 package com.cybertek.day5;
 
-import com.cybertek.utiliteis.HRTestBase;
+import com.cybertek.utilities.HRTestBase;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

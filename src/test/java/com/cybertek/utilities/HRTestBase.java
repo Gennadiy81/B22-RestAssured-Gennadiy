@@ -1,4 +1,4 @@
-package com.cybertek.utiliteis;
+package com.cybertek.utilities;
 
 import org.junit.jupiter.api.BeforeAll;
 

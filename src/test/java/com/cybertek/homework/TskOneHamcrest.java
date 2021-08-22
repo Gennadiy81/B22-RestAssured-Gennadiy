@@ -1,12 +1,11 @@
 package com.cybertek.homework;
 
-import com.cybertek.utiliteis.HRTestBase;
+import com.cybertek.utilities.HRTestBase;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 public class TskOneHamcrest extends HRTestBase {
