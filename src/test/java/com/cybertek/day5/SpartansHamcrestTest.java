@@ -11,7 +11,6 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 
 public class SpartansHamcrestTest extends SpartanTestBase {
-
     @DisplayName("GET spartan/search and chaining together")
     @Test
     public void test1(){
@@ -40,7 +39,7 @@ public class SpartansHamcrestTest extends SpartanTestBase {
 
         //save status code
 
-        List<String> names = given().accept(ContentType.JSON)
+        int statusCode = given().accept(ContentType.JSON)
                 .and()
                 .queryParams("nameContains","j",
                         "gender","Male")
@@ -50,7 +49,9 @@ public class SpartansHamcrestTest extends SpartanTestBase {
                 .statusCode(200)
                 .and()
                 .body("totalElement",greaterThanOrEqualTo(3))
-                .extract().response().jsonPath().getList("content.name");
+                .extract().response().statusCode();
+
+        System.out.println(statusCode);
 
 
 
