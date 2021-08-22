@@ -3,6 +3,7 @@ package com.cybertek.day6;
 import com.cybertek.pojo.Region;
 import com.cybertek.utilities.HRTestBase;
 import io.restassured.path.json.JsonPath;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.get;
@@ -17,9 +18,33 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
 
         System.out.println(region1);
 
-        System.out.println("region1.getRegion_id() = " + region1.getRegionId());
+        System.out.println("region1.getRegion_id() = " + region1.getRId());
         System.out.println("region1.getRegion_name() = " + region1.getRegion_name());
         System.out.println("region1.getLinks().get(0).getHref() = " + region1.getLinks().get(0).getHref());
-
     }
+
+
+
+    @DisplayName("Get request to /employees and only get couple of values as a Pojo class")
+    @Test
+    public void test
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
