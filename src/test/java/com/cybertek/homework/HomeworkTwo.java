@@ -8,9 +8,14 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class HomeworkTwo {
     /**
@@ -59,7 +64,7 @@ public class HomeworkTwo {
 
     @DisplayName("Get 404 for zipcode 50000")
     @Test
-    public void test3(){
+    public void test2(){
 
         Response response = given().accept(ContentType.JSON)
                 .and().pathParam("zipcode", 50000)
@@ -68,24 +73,54 @@ public class HomeworkTwo {
         assertEquals("application/json", response.contentType());
     }
 
+    /**
+     * Given Accept application/json
+     * And path state is va
+     * And path city is farifax
+     * When I send a GET request to /us endpoint
+     * Then status code must be 200
+     * And content type must be application/json
+     * And payload should contains following information
+     *     country abbreviation is US
+     *     country  United States
+     *     place name  Fairfax
+     *     each places must contains fairfax as a value
+     *     each post code must start with 22
+     */
+
+    @DisplayName("GET info from Fairfax")
+    @Test
+    public void test3(){
+        Response response = given().accept(ContentType.JSON)
+                            .and().pathParam("state", "va")
+                            .and().pathParam("city", "fairfax")
+                            .when().get("/{state}/{city}");
+
+        assertEquals(200, response.statusCode());
+        assertEquals("application/json", response.contentType());
+
+        JsonPath jsonPath = response.jsonPath();
+        assertEquals("US", jsonPath.getString("'country abbreviation'"));
+        assertEquals("United States", jsonPath.getString("country"));
+        assertEquals("Fairfax", jsonPath.getString("'place name'"));
+
+        List<String> placesName = jsonPath.getList("places.'place name'");
+        placesName.forEach(item ->{
+            assertTrue(item.contains("Fairfax"));
+        });
+
+        List<String> postCode = jsonPath.getList("places.'post code'");
+        postCode.forEach(code ->{
+           assertTrue(code.startsWith("22"));
+        });
 
 
 
 
 
+        System.out.println(jsonPath.getString("places[0].'place name'"));
 
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 
