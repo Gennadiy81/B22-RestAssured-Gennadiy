@@ -8,14 +8,11 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 
 public class HomeworkTwo {
     /**
@@ -61,6 +58,14 @@ public class HomeworkTwo {
         assertEquals(38.8604, jsonData.getDouble("places[0].latitude"));
 
     }
+
+    /**
+     * Given Accept application/json
+     * And path zipcode is 50000
+     * When I send a GET request to /us endpoint
+     * Then status code must be 404
+     * And content type must be application/json
+     */
 
     @DisplayName("Get 404 for zipcode 50000")
     @Test
@@ -113,16 +118,5 @@ public class HomeworkTwo {
         postCode.forEach(code ->{
            assertTrue(code.startsWith("22"));
         });
-
-
-
-
-
-        System.out.println(jsonPath.getString("places[0].'place name'"));
-
     }
-
-
-
-
 }
